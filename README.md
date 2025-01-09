@@ -44,3 +44,5 @@ Pour exécuter le programme :
 docker build . -t current-time
 docker run --rm current-time
 ```
+
+Pour sortir du programme appuyer sur les touches ctrl + C

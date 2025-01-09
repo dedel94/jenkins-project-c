@@ -1,20 +1,29 @@
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h> // Pour la fonction sleep()
 
 int main() {
-    time_t currentTime;
-    struct tm *localTime;
+    while (1) { // Boucle infinie
+        time_t currentTime;
+        struct tm *localTime;
 
-    // Get the current time
-    currentTime = time(NULL);
+        // Obtenir l'heure actuelle
+        currentTime = time(NULL);
 
-    // Convert to local time format
-    localTime = localtime(&currentTime);
+        // Convertir en format local
+        localTime = localtime(&currentTime);
 
-    int hour = localTime->tm_hour;   // Current hour (0-23)
-    int minute = localTime->tm_min; // Current minute (0-59)
+        int hour = localTime->tm_hour;
+        int minute = localTime->tm_min;
+        int second = localTime->tm_sec;
 
-    printf("Current time: %02d:%02d\n", hour, minute);
+        // Afficher l'heure actuelle
+        printf("\rHeure actuelle : %02d:%02d:%02d", hour, minute, second);
+        fflush(stdout); // Forcer l'affichage immédiat
+
+        // Pause d'une seconde
+        sleep(1);
+    }
 
     return 0;
 }
