@@ -38,3 +38,9 @@ Pour exécuter le programme :
 ```bash
 ./current_time
 ```
+
+## Démarrer ce projet avec Docker
+```
+docker build . -t current-time
+docker run --rm current-time
+```
